@@ -1,0 +1,49 @@
+{
+    "name": "chrysanthos/auth-logging",
+    "description": "Logs auth attempts",
+    "keywords": [
+        "Chrysanthos",
+        "Laravel",
+        "Auth Logging"
+    ],
+    "homepage": "https://github.com/Chrysanthos/auth-logging",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chrysanthos Prodromou",
+            "email": "pchrysanthos@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.3",
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chrysanthos\\AuthLogging\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chrysanthos\\AuthLogging\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chrysanthos\\AuthLogging\\AuthLoggingServiceProvider"
+            ]
+        }
+    }
+}
