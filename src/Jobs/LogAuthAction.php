@@ -54,7 +54,7 @@ class LogAuthAction implements ShouldQueue
         $value = $this->credentials['email'] ?? $this->credentials['username'] ?? null;
 
         if ($value === null) {
-            return null;
+            return;
         }
 
         $maskedFields = config('auth-logging.mask', []);
@@ -69,7 +69,7 @@ class LogAuthAction implements ShouldQueue
      */
     protected function getPassword()
     {
-        $value        = $this->credentials['password'];
+        $value = $this->credentials['password'];
         $maskedFields = config('auth-logging.mask', []);
 
         return in_array('password', $maskedFields, true)

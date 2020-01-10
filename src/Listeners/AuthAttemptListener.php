@@ -3,7 +3,6 @@
 namespace Chrysanthos\AuthLogging\Listeners;
 
 use Chrysanthos\AuthLogging\Jobs\LogAuthAction;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 
 class AuthAttemptListener
