@@ -14,18 +14,18 @@ class AuthLoggingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('auth-logging.enabled', true)){
+        if (config('auth-logging.enabled', true)) {
             Event::listen(
                 Failed::class,
                 AuthAttemptListener::class
             );
         }
 
-        $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'migrations');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/auth-logging.php' => config_path('auth-logging.php'),
+                __DIR__.'/../config/auth-logging.php' => config_path('auth-logging.php'),
             ], 'config');
 
             /*
@@ -43,6 +43,6 @@ class AuthLoggingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/auth-logging.php', 'auth-logging');
+        $this->mergeConfigFrom(__DIR__.'/../config/auth-logging.php', 'auth-logging');
     }
 }
