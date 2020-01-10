@@ -14,10 +14,12 @@ class AuthLoggingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen(
-            Failed::class,
-            AuthAttemptListener::class
-        );
+        if (config('auth-logging.enabled', true)){
+            Event::listen(
+                Failed::class,
+                AuthAttemptListener::class
+            );
+        }
 
         $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'migrations');
 
