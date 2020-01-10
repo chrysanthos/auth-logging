@@ -3,7 +3,16 @@
 return [
     'enabled' => env('AUTH_LOGGING', true),
 
-    'sync' => true,
+    /*
+    |--------------------------------------------------------------------------
+    | Insert row into database synchronously
+    |--------------------------------------------------------------------------
+    |
+    | Allows to specify whether your want to insert the query  synchronously
+    | or whether is should be queued for faster response times.
+    |
+    */
+    'sync'    => true,
 
     /*
     |--------------------------------------------------------------------------
