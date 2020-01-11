@@ -9,7 +9,6 @@ use Orchestra\Testbench\TestCase;
 
 class TestLogAuthActionJob extends TestCase
 {
-
     protected $credentials = ['email' => 'first@chrysanthos.dev', 'password' => 'password'];
 
     public function test_that_it_stores_the_credentials_when_enabled()
@@ -32,7 +31,7 @@ class TestLogAuthActionJob extends TestCase
 
         $this->credentials = [
             'email'    => 'second@chrysanthos.dev',
-            'password' => 'password'
+            'password' => 'password',
         ];
 
         event(new Failed('web', $this->getUser(), $this->credentials));
@@ -48,14 +47,14 @@ class TestLogAuthActionJob extends TestCase
 
         $this->credentials = [
             'email'    => 'second@chrysanthos.dev',
-            'password' => 'password'
+            'password' => 'password',
         ];
 
         event(new Failed('web', $this->getUser(), $this->credentials));
 
         $this->assertDatabaseHas('auth_logs', [
             'email'    => '***ond@chrysanthos.dev',
-            'password' => '****word'
+            'password' => '****word',
         ]);
     }
 
@@ -67,28 +66,28 @@ class TestLogAuthActionJob extends TestCase
 
         $this->credentials = [
             'email'    => 'second@chrysanthos.dev',
-            'password' => 'password'
+            'password' => 'password',
         ];
 
         event(new Failed('web', $this->getUser(), $this->credentials));
 
         $this->assertDatabaseHas('auth_logs', [
             'email'    => 'second@chrysanthos.dev',
-            'password' => '****word'
+            'password' => '****word',
         ]);
     }
 
     protected function getUser()
     {
         return tap(new User, function ($user) {
-            $user->email    = $this->credentials['email'];
+            $user->email = $this->credentials['email'];
             $user->password = $this->credentials['password'];
 
             return $user;
         });
     }
 
-    protected function migrate() : void
+    protected function migrate(): void
     {
         $this->loadLaravelMigrations();
         $this->artisan('migrate')->run();
