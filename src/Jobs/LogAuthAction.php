@@ -9,21 +9,22 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class LogAuthAction implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $credentials;
+    protected $payload;
 
     /**
      * Create a new job instance.
      *
-     * @param $credentials
+     * @param $payload
      */
-    public function __construct($credentials)
+    public function __construct($payload)
     {
-        $this->credentials = $credentials;
+        $this->payload = $payload;
     }
 
     /**
@@ -40,8 +41,8 @@ class LogAuthAction implements ShouldQueue
         AuthLogEntry::create([
             'email'         => $email,
             'password'      => $this->getPassword(),
-            'ip'            => $this->credentials['ip'],
-            'user_agent'    => $this->credentials['user_agent'],
+            'ip'            => $this->payload['ip'] ?? null,
+            'user_agent'    => $this->payload['user_agent'] ?? null,
             'existing_user' => $existing_user,
         ]);
     }
@@ -51,7 +52,7 @@ class LogAuthAction implements ShouldQueue
      */
     protected function getEmail()
     {
-        $value = $this->credentials['email'] ?? $this->credentials['username'] ?? null;
+        $value = $this->payload['email'] ?? $this->payload['username'] ?? null;
 
         if ($value === null) {
             return;
@@ -61,7 +62,7 @@ class LogAuthAction implements ShouldQueue
 
         return in_array('email', $maskedFields, true)
             ? $this->mask($value, (int) (strlen($value) / 2))
-            : $this->credentials['email'];
+            : $this->payload['email'];
     }
 
     /**
@@ -69,12 +70,12 @@ class LogAuthAction implements ShouldQueue
      */
     protected function getPassword()
     {
-        $value = $this->credentials['password'];
+        $value        = $this->payload['password'];
         $maskedFields = config('auth-logging.mask', []);
 
         return in_array('password', $maskedFields, true)
             ? $this->mask($value, (int) (strlen($value) / 2))
-            : $this->credentials['password'];
+            : $this->payload['password'];
     }
 
     /**
@@ -85,6 +86,14 @@ class LogAuthAction implements ShouldQueue
      */
     protected function mask(string $value, $number)
     {
-        return str_repeat('*', strlen($value) - $number).substr($value, -$number);
+        $length = strlen($value);
+
+        if (Str::contains($value, '@')) {
+            $length = strlen(Str::beforeLast($value, '@'));
+
+            $number = (int) ($length / 2);
+        }
+
+        return str_repeat('*', $length - $number).substr($value, $number);
     }
 }
