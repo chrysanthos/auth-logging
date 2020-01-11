@@ -26,7 +26,6 @@ class AuthLoggingServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/auth-logging.php' => config_path('auth-logging.php'),
         ], 'config');
-
     }
 
     /**

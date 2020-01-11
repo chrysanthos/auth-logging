@@ -70,7 +70,7 @@ class LogAuthAction implements ShouldQueue
      */
     protected function getPassword()
     {
-        $value        = $this->payload['password'];
+        $value = $this->payload['password'];
         $maskedFields = config('auth-logging.mask', []);
 
         return in_array('password', $maskedFields, true)
