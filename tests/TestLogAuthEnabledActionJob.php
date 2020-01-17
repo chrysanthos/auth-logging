@@ -66,14 +66,14 @@ class TestLogAuthEnabledActionJob extends TestCase
     protected function getUser()
     {
         return tap(new User, function ($user) {
-            $user->email    = $this->credentials['email'];
+            $user->email = $this->credentials['email'];
             $user->password = $this->credentials['password'];
 
             return $user;
         });
     }
 
-    protected function migrate() : void
+    protected function migrate(): void
     {
         $this->loadLaravelMigrations();
         $this->artisan('migrate')->run();
