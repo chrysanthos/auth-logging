@@ -1,6 +1,6 @@
 {
     "name": "chrysanthos/auth-logging",
-    "description": "Logs auth attempts",
+    "description": "Authentication logger for Laravel",
     "keywords": [
         "Laravel",
         "Laravel Framework",
