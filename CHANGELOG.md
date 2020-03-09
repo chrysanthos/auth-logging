@@ -1,7 +1,5 @@
 # Changelog
 
-All notable changes to `auth-logging` will be documented in this file
-
 ## 2.0.0 - 11-01-2020
 - Laravel 7 support
  
