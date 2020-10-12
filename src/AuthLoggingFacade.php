@@ -16,9 +16,6 @@ class AuthLoggingFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        // "aliases": {
-        //                "AuthLogging": "Chrysanthos\\AuthLogging\\AuthLoggingFacade"
-        //            }
         return 'auth-logging';
     }
 }
