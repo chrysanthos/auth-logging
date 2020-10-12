@@ -8,5 +8,5 @@ class AuthLogEntry extends Eloquent
 {
     protected $table = 'auth_logs';
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 }
