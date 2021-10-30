@@ -81,7 +81,6 @@ class LogAuthAction implements ShouldQueue
     /**
      * @param  string  $value  The value to be masked
      * @param  int  $number  The number of characters to be plain text
-     *
      * @return string
      */
     protected function mask(string $value, $number)
