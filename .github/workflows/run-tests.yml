@@ -8,15 +8,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.3, 7.4, 8.0]
-        laravel: [6.*, 7.*, 8.*]
+        php: [8.0, 8.1]
+        laravel: [8.*, 9.*]
         include:
-          - laravel: 6.*
-            testbench: 4.*
-          - laravel: 7.*
-            testbench: 5.*
           - laravel: 8.*
             testbench: 6.*
+          - laravel: 9.*
+            testbench: 7.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
@@ -31,7 +29,7 @@ jobs:
           key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
