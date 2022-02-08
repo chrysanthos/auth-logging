@@ -1,7 +1,10 @@
 # Changelog
 
-## 3.0.0 - 08-02-2022
+## 4.0.0 - 08-02-2022
 - Laravel 9 support
+
+## 3.0.0 - 17-07-2021
+- PHP 8 Support
 
 ## 2.1.0 - 03-10-2020
 - Laravel 8 support
