@@ -3,7 +3,6 @@
     "description": "Authentication logger for Laravel",
     "keywords": [
         "Laravel",
-        "Laravel Framework",
         "Laravel Package",
         "Laravel Auth",
         "Laravel Authentication",
@@ -15,12 +14,12 @@
         "issues": "https://github.com/chrysanthos/auth-logging/issues",
         "source": "https://github.com/chrysanthos/auth-logging"
     },
-    "homepage": "https://github.com/Chrysanthos/auth-logging",
+    "homepage": "https://github.com/chrysanthos/auth-logging",
     "license": "MIT",
     "authors": [
         {
             "name": "Chrysanthos Prodromou",
-            "email": "pchrysanthos@gmail.com",
+            "email": "me@chrysanthos.xyz",
             "role": "Developer"
         }
     ],
