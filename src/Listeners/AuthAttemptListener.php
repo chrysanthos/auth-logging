@@ -23,7 +23,7 @@ class AuthAttemptListener
         if (config('auth-logging.sync', true)) {
             dispatch(new LogAuthAction($payload));
         } else {
-            dispatch_now(new LogAuthAction($payload));
+            dispatchSync(new LogAuthAction($payload));
         }
     }
 }
