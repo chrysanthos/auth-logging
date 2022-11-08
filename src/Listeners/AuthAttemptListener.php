@@ -21,9 +21,9 @@ class AuthAttemptListener
         ]);
 
         if (config('auth-logging.sync', true)) {
-            LogAuthAction::dispatch($payload);
-        } else {
             LogAuthAction::dispatchSync($payload);
+        } else {
+            LogAuthAction::dispatch($payload);
         }
     }
 }
