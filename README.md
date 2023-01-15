@@ -1,7 +1,7 @@
 # Authentication logger for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Chrysanthos/auth-logging.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/auth-logging)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/chrysanthos/auth-logging/run-tests?label=tests)](https://github.com/chrysanthos/auth-logging/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/chrysanthos/auth-logging/run-tests.yml?branch=main&?label=tests)](https://github.com/chrysanthos/auth-logging/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Quality Score](https://img.shields.io/scrutinizer/g/chrysanthos/auth-logging.svg?style=flat-square)](https://scrutinizer-ci.com/g/chrysanthos/auth-logging)
 [![Total Downloads](https://img.shields.io/packagist/dt/chrysanthos/auth-logging.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/auth-logging)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=flat-square)](https://plant.treeware.earth/chrysanthos/auth-logging)
