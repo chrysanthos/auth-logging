@@ -1,4 +1,4 @@
-## Treeware Option Two
+## Treeware
 
 You're free to use this package, but if it makes it to your production environment you are required to buy the world a tree.
 
