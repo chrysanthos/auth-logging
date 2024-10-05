@@ -5,7 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/chrysanthos/auth-logging.svg?style=flat-square)](https://packagist.org/packages/chrysanthos/auth-logging)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=flat-square)](https://plant.treeware.earth/chrysanthos/auth-logging)
 
-The Laravel package logs failed attempts to login. It stores the credentials used along with the user ip and user agent in a table where you can later check. A Nova tool will be provided soon. 
+The "Auth Logging" package logs failed login attempts that occur in your app. It stores the credentials used along with the user ip and user agent in the database which you can analyse at a later point.
 
 ## Installation
 
