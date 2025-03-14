@@ -16,7 +16,7 @@ class AuthAttemptListener
     public function handle($event)
     {
         $payload = array_merge($event->credentials, [
-            'ip'         => Request::ip(),
+            'ip' => Request::ip(),
             'user_agent' => Request::userAgent(),
         ]);
 

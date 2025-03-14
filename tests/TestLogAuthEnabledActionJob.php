@@ -33,14 +33,14 @@ class TestLogAuthEnabledActionJob extends TestCase
         $this->migrate();
 
         $this->credentials = [
-            'email'    => 'second@chrysanthos.dev',
+            'email' => 'second@chrysanthos.dev',
             'password' => 'password',
         ];
 
         event(new Failed('web', $this->getUser(), $this->credentials));
 
         $this->assertDatabaseHas('auth_logs', [
-            'email'    => '***ond@chrysanthos.dev',
+            'email' => '***ond@chrysanthos.dev',
             'password' => '****word',
         ]);
     }
@@ -51,14 +51,14 @@ class TestLogAuthEnabledActionJob extends TestCase
         $this->migrate();
 
         $this->credentials = [
-            'email'    => 'second@chrysanthos.dev',
+            'email' => 'second@chrysanthos.dev',
             'password' => 'password',
         ];
 
         event(new Failed('web', $this->getUser(), $this->credentials));
 
         $this->assertDatabaseHas('auth_logs', [
-            'email'    => 'second@chrysanthos.dev',
+            'email' => 'second@chrysanthos.dev',
             'password' => '****word',
         ]);
     }
