@@ -13,7 +13,7 @@ return [
     | or whether is should be queued for faster response times.
     |
     */
-    'sync'    => true,
+    'sync' => true,
 
     /*
     |--------------------------------------------------------------------------

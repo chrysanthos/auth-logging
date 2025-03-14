@@ -22,7 +22,7 @@ class TestLogAuthDisabledActionJob extends TestCase
         $this->migrate();
 
         $this->credentials = [
-            'email'    => 'second@chrysanthos.dev',
+            'email' => 'second@chrysanthos.dev',
             'password' => 'password',
         ];
 

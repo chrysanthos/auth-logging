@@ -20,7 +20,7 @@ class LogAuthAction implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param $payload
+     * @param  $payload
      */
     public function __construct($payload)
     {
@@ -39,10 +39,10 @@ class LogAuthAction implements ShouldQueue
         $existing_user = DB::table('users')->where('email', $email)->exists();
 
         AuthLogEntry::create([
-            'email'         => $email,
-            'password'      => $this->getPassword(),
-            'ip'            => $this->payload['ip'] ?? null,
-            'user_agent'    => $this->payload['user_agent'] ?? null,
+            'email' => $email,
+            'password' => $this->getPassword(),
+            'ip' => $this->payload['ip'] ?? null,
+            'user_agent' => $this->payload['user_agent'] ?? null,
             'existing_user' => $existing_user,
         ]);
     }
